@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.challenge2.components.NavBar
 import com.example.challenge2.components.TopBar
 import com.example.challenge2.data.Product
+import com.example.challenge2.screens.FavouritesScreen
 import com.example.challenge2.screens.ItemList
 import com.example.challenge2.screens.Profile
 import com.example.challenge2.screens.SettingsScreen
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         composable(route = Routes.HOME.route) { ItemList(favoriteProducts ) }
                         composable(route = Routes.PROFILE.route) { Profile() }
                         composable(route = Routes.SETTINGS.route) { SettingsScreen(navController) }
-                        composable(route = Routes.FAVOURITES.route) { Text(text = "Favourite") }
+                        composable(route = Routes.FAVOURITES.route) { FavouritesScreen(favoriteProducts) }
                     }
                 }
             }
