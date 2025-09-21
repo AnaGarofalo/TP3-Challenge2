@@ -25,17 +25,19 @@ fun MyButton(
     val containerColor = when (type) {
         ButtonType.PRIMARY -> PrimaryBrown
         ButtonType.SECONDARY -> Color.Transparent
+        ButtonType.TEXT -> Color.Transparent
     }
 
     val textColor = when (type) {
         ButtonType.PRIMARY -> Color.White
         ButtonType.SECONDARY -> PrimaryBrown
+        ButtonType.TEXT -> PrimaryBrown
     }
 
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(100.dp),
-        border = BorderStroke(1.dp, PrimaryBrown), // ← así se hace en Material3
+        border = if (ButtonType.TEXT != type) BorderStroke(1.dp, PrimaryBrown) else null, // ← así se hace en Material3
         enabled = true,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor

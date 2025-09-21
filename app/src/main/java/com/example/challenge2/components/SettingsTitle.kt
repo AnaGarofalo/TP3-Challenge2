@@ -13,6 +13,5 @@ fun SettingsTitle(textId: Int, color: Color) {
         text = stringResource(textId),
         color = color,
         fontSize = 18.sp
-//        fontFamily = Rubik
     )
 }

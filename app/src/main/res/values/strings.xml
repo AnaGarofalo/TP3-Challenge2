@@ -33,4 +33,10 @@
     <string name="st_privacy_policy">Privacy policy</string>
     <string name="st_terms_of_service">Terms and conditions</string>
 
+    <!-- AddedToFavModal -->
+    <string name="atf_title">Added to favourites</string>
+    <string name="atf_confirm_button">Ok</string>
+    <string name="atf_cancel_button">Dismiss</string>
+    <string name="atf_content">Now you can find this product at item favourites</string>
+
 </resources>

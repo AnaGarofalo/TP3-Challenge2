@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(route = Routes.HOME.route) { ItemList(favoriteProducts ) }
                         composable(route = Routes.PROFILE.route) { Profile() }
-                        composable(route = Routes.SETTINGS.route) { SettingsScreen() }
+                        composable(route = Routes.SETTINGS.route) { SettingsScreen(navController) }
                         composable(route = Routes.FAVOURITES.route) { Text(text = "Favourite") }
                     }
                 }

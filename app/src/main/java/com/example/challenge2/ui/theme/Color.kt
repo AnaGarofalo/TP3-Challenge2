@@ -23,3 +23,5 @@ var SecondaryBrown = Color(0xFF85736D)
 var LightGray = Color(0xFFABABAB)
 
 val Orange = Color(0xFFEE8924)
+
+val ModalIconColor = Color(0xFF77574B)
