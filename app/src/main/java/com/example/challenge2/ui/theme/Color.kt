@@ -13,3 +13,13 @@ val Pink40 = Color(0xFF7D5260)
 val DarkBrown = Color(0xFF52433E)
 
 val BackgroundColor = Color(0xFFF4EDEB)
+
+var CardBackground = Color(0xFFFCFCFC)
+
+var PrimaryBrown = Color(0xFF9A4521)
+
+var SecondaryBrown = Color(0xFF85736D)
+
+var LightGray = Color(0xFFABABAB)
+
+val Orange = Color(0xFFEE8924)

@@ -6,4 +6,20 @@
     <string name="tbt_favourites">Favourites</string>
     <string name="tbt_settings">Settings</string>
     <string name="tbt_profile">Profile</string>
+
+    <!-- Product -->
+    <string name="p_add_to_favourites">Add to favourite</string>
+    <string name="p_remove_from_favourites">Remove from favourites</string>
+    <string name="p_buy">Buy</string>
+
+    <!-- Profile -->
+    <string name="pr_email_label">E-Mail Address</string>
+    <string name="pr_email_placeholder">xxx@gmail.com</string>
+    <string name="pr_phone_label">Phone Number</string>">
+    <string name="pr_phone_placeholder">+5493123135</string>
+    <string name="pr_website_label">Web Site</string>
+    <string name="pr_website_placeholder">www.google.com</string>
+    <string name="pr_password_label">Password</string>
+    <string name="pr_password_placeholder">xxxxxxxxxxxxxxx</string>
+
 </resources>
