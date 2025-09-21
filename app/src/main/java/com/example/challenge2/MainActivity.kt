@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -18,6 +19,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.challenge2.components.Cart
 import com.example.challenge2.components.NavBar
 import com.example.challenge2.components.TopBar
 import com.example.challenge2.data.Product
@@ -43,6 +45,7 @@ class MainActivity : ComponentActivity() {
 
                 val favoriteProducts = remember { mutableStateListOf<Product>() }
                 val cart = remember { mutableStateListOf<Product>() }
+                val showCart = remember { mutableStateOf(false) }
 
                 Scaffold(
                     topBar = {
@@ -51,7 +54,7 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                         )
                     },
-                    bottomBar = { NavBar(navController) }
+                    bottomBar = { NavBar(navController, openCartModal = { showCart.value = true }) }
                 ) { innerPadding ->
                     NavHost(
                         navController = navController,
@@ -68,9 +71,11 @@ class MainActivity : ComponentActivity() {
                         ) { backStackEntry ->
                             val productId = backStackEntry.arguments?.getInt("productId") ?: 0
                             val product = sampleProducts.find { product -> product.id == productId }
-                            ProductDetail(product, navController, cart)
+                            ProductDetail(product, navController, cart, openCartModal = { showCart.value = true })
                         }
                     }
+
+                    Cart(cart, showCart.value, { showCart.value = false }, navController)
                 }
             }
         }

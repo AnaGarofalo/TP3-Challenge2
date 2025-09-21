@@ -30,6 +30,7 @@ fun ProductDetail(
     product: Product? = null,
     navController: NavController,
     cart: MutableList<Product>,
+    openCartModal: () -> Unit,
 ) {
     if (product == null) {
         navController.navigate(Routes.HOME.route)
@@ -82,7 +83,10 @@ fun ProductDetail(
             )
 
             MyButton(
-                onClick = {addToCart},
+                onClick = {
+                    addToCart()
+                    openCartModal()
+                },
                 text = stringResource(R.string.p_add_to_cart),
             )
         }

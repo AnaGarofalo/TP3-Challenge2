@@ -52,4 +52,7 @@
     <string name="pd_select_size">Select size</string>
     <string name="pd_count_of_producy">Count of producy</string>
 
+    <!-- CartModal -->
+    <string name="cm_title">Order list</string>
+    <string name="cm_content">There are products, which you have chosen to buy. Make the final purchase decision and place an order.</string>
 </resources>

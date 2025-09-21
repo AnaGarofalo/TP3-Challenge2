@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -16,7 +17,7 @@ import com.example.challenge2.R
 import com.example.challenge2.types.Routes
 
 @Composable
-fun NavBar(navController: NavHostController) {
+fun NavBar(navController: NavHostController, openCartModal: () -> Unit) {
     NavigationBar {
         NavigationBarItem(
             selected = true,
@@ -36,6 +37,13 @@ fun NavBar(navController: NavHostController) {
             onClick = {  navController.navigate(Routes.FAVOURITES.route) },
             icon = { Icon(Icons.Default.Favorite, contentDescription = stringResource(R.string.nb_favourites)) },
             label = { Text(stringResource(R.string.nb_favourites)) }
+        )
+
+        NavigationBarItem(
+            selected = false,
+            onClick = openCartModal,
+            icon = { Icon(Icons.Default.ShoppingCart, contentDescription = stringResource(R.string.nb_settings)) },
+            label = { Text(stringResource(R.string.nb_cart)) }
         )
 
         NavigationBarItem(
