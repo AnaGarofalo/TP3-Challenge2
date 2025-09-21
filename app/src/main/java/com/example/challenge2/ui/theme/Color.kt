@@ -27,3 +27,9 @@ val Orange = Color(0xFFEE8924)
 val ModalIconColor = Color(0xFF77574B)
 
 val UnselectedNavBarItem = Color(0xFF9DB2CE)
+
+val DrawerBackground = Color(0xFFFCFCFC)
+
+val DrawerItemColor = Color(0xFF2C160D)
+
+val SelectedDrawerColor = Color(0xFFFFDBCD)

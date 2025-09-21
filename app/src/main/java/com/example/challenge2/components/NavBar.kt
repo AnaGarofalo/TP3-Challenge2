@@ -10,15 +10,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -27,12 +23,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.challenge2.R
 import com.example.challenge2.types.Routes
+import com.example.challenge2.ui.theme.CardBackground
 import com.example.challenge2.ui.theme.PrimaryBrown
 
 @Composable
 fun NavBar(navController: NavHostController, openCartModal: () -> Unit) {
     Box(
-        Modifier.fillMaxWidth().background(Color.White)
+        Modifier.fillMaxWidth().background(CardBackground)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 16.dp, start = 8.dp, end = 8.dp),
