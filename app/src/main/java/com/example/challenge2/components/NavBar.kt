@@ -1,56 +1,84 @@
 package com.example.challenge2.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
+import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.challenge2.R
 import com.example.challenge2.types.Routes
+import com.example.challenge2.ui.theme.PrimaryBrown
 
 @Composable
 fun NavBar(navController: NavHostController, openCartModal: () -> Unit) {
-    NavigationBar {
-        NavigationBarItem(
-            selected = true,
-            onClick = {navController.navigate(Routes.HOME.route) },
-            icon = { Icon(Icons.Default.Home, contentDescription = stringResource(R.string.nb_home)) },
-            label = { Text(stringResource(R.string.nb_home)) }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = {  navController.navigate(Routes.PROFILE.route) },
-            icon = { Icon(Icons.Default.Person, contentDescription = stringResource(R.string.nb_profile)) },
-            label = { Text(stringResource(R.string.nb_profile)) }
-        )
+    Box(
+        Modifier.fillMaxWidth().background(Color.White)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 16.dp, start = 8.dp, end = 8.dp),
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            NavBarItem(
+                painter = painterResource(R.drawable.user),
+                labelText = R.string.nb_profile,
+                route = Routes.PROFILE,
+                navController = navController
+            )
+            NavBarItem(
+                painter =rememberVectorPainter(Icons.Outlined.FavoriteBorder),
+                labelText = R.string.nb_favourites,
+                route = Routes.FAVOURITES,
+                navController = navController
+            )
 
-        NavigationBarItem(
-            selected = false,
-            onClick = {  navController.navigate(Routes.FAVOURITES.route) },
-            icon = { Icon(Icons.Default.Favorite, contentDescription = stringResource(R.string.nb_favourites)) },
-            label = { Text(stringResource(R.string.nb_favourites)) }
-        )
+            FloatingActionButton(
+                onClick = {navController.navigate(Routes.HOME.route)},
+                containerColor = PrimaryBrown,
+                shape = CircleShape,
+                modifier = Modifier
+                    .offset(y = (-32).dp)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.shop),
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
 
-        NavigationBarItem(
-            selected = false,
-            onClick = openCartModal,
-            icon = { Icon(Icons.Default.ShoppingCart, contentDescription = stringResource(R.string.nb_settings)) },
-            label = { Text(stringResource(R.string.nb_cart)) }
-        )
+            NavBarItem(
+                painter = painterResource(R.drawable.bag),
+                labelText = R.string.nb_cart,
+                navController = navController,
+                onClick = openCartModal,
+            )
 
-        NavigationBarItem(
-            selected = false,
-            onClick = {  navController.navigate(Routes.SETTINGS.route) },
-            icon = { Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.nb_settings)) },
-            label = { Text(stringResource(R.string.nb_settings)) }
-        )
+            NavBarItem(
+                painter = rememberVectorPainter(Icons.Outlined.Settings),
+                labelText = R.string.nb_settings,
+                route = Routes.SETTINGS,
+                navController = navController
+            )
+        }
     }
 }

@@ -25,3 +25,5 @@ var LightGray = Color(0xFFABABAB)
 val Orange = Color(0xFFEE8924)
 
 val ModalIconColor = Color(0xFF77574B)
+
+val UnselectedNavBarItem = Color(0xFF9DB2CE)
