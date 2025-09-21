@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
 import com.example.challenge2.R
 import com.example.challenge2.components.MyModal
 import com.example.challenge2.components.ProductItem
@@ -19,7 +20,7 @@ import com.example.challenge2.ui.theme.ModalIconColor
 
 @Composable
 fun ItemList(
-        favorites: MutableList<Product>
+        favorites: MutableList<Product>, navController: NavController
 ) {
         val showAddedToFavDialog = remember { mutableStateOf(false) }
         LazyColumn {
@@ -28,6 +29,7 @@ fun ItemList(
                         ProductItem(
                                 product = product,
                                 isFavorite = isFavorite,
+                                navController = navController,
                                 onFavoriteClick = {
                                         if (isFavorite) {
                                                 favorites.remove(product)

@@ -12,15 +12,19 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.challenge2.components.NavBar
 import com.example.challenge2.components.TopBar
 import com.example.challenge2.data.Product
+import com.example.challenge2.data.sampleProducts
 import com.example.challenge2.screens.FavouritesScreen
 import com.example.challenge2.screens.ItemList
+import com.example.challenge2.screens.ProductDetail
 import com.example.challenge2.screens.Profile
 import com.example.challenge2.screens.SettingsScreen
 import com.example.challenge2.types.Routes
@@ -38,6 +42,7 @@ class MainActivity : ComponentActivity() {
                 val currentRoute = currentBackStack?.destination?.route
 
                 val favoriteProducts = remember { mutableStateListOf<Product>() }
+                val cart = remember { mutableStateListOf<Product>() }
 
                 Scaffold(
                     topBar = {
@@ -53,10 +58,18 @@ class MainActivity : ComponentActivity() {
                         startDestination = Routes.HOME.route,
                         modifier = Modifier.padding(innerPadding)
                     ) {
-                        composable(route = Routes.HOME.route) { ItemList(favoriteProducts ) }
+                        composable(route = Routes.HOME.route) { ItemList(favoriteProducts, navController ) }
                         composable(route = Routes.PROFILE.route) { Profile() }
                         composable(route = Routes.SETTINGS.route) { SettingsScreen(navController) }
                         composable(route = Routes.FAVOURITES.route) { FavouritesScreen(favoriteProducts) }
+                        composable(
+                            route = "product/{productId}",
+                            arguments = listOf(navArgument("productId") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            val productId = backStackEntry.arguments?.getInt("productId") ?: 0
+                            val product = sampleProducts.find { product -> product.id == productId }
+                            ProductDetail(product, navController, cart)
+                        }
                     }
                 }
             }

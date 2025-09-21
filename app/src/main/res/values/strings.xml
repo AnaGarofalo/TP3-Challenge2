@@ -17,7 +17,9 @@
     <!-- Product -->
     <string name="p_add_to_favourites">Add to favourite</string>
     <string name="p_remove_from_favourites">Remove from favourites</string>
+    <string name="p_add_to_cart">Add to Cart</string>
     <string name="p_buy">Buy</string>
+    <string name="p_back">Back</string>
 
     <!-- Profile -->
     <string name="pr_email_label">E-Mail Address</string>
@@ -45,5 +47,9 @@
     <string name="atf_confirm_button">Ok</string>
     <string name="atf_cancel_button">Dismiss</string>
     <string name="atf_content">Now you can find this product at item favourites</string>
+
+    <!-- ProductDetail -->
+    <string name="pd_select_size">Select size</string>
+    <string name="pd_count_of_producy">Count of producy</string>
 
 </resources>

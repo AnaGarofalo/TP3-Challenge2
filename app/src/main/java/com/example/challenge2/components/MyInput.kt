@@ -28,7 +28,7 @@ fun MyInput(
     label: String,
     placeholder: String,
     modifier: Modifier = Modifier,
-    icon: ImageVector
+    icon: ImageVector? = null
 ) {
     OutlinedTextField(
         value = value,
@@ -36,7 +36,7 @@ fun MyInput(
         label = { Text(label, color = SecondaryBrown) },
         placeholder = { Text(placeholder, color = LightGray) },
         trailingIcon = {
-            Icon(icon, contentDescription = null, tint = LightGray)
+            if (icon != null) Icon(icon, contentDescription = null, tint = LightGray)
         },
         colors = TextFieldDefaults.colors(
             focusedContainerColor = Color.Transparent,

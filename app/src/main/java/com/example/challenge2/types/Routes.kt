@@ -7,6 +7,7 @@ enum class Routes(val route: String) {
     FAVOURITES("favourites"),
     PROFILE("profile"),
     SETTINGS("settings"),
+    PRODUCT("product/")
 }
 
 val routeTitles = mapOf(

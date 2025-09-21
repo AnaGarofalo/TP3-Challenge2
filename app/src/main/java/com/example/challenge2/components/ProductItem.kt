@@ -22,9 +22,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.challenge2.data.Product
 import com.example.challenge2.R
 import com.example.challenge2.types.ButtonType
+import com.example.challenge2.types.Routes
 import com.example.challenge2.ui.theme.CardBackground
 import com.example.challenge2.ui.theme.DarkBrown
 
@@ -33,6 +35,7 @@ import com.example.challenge2.ui.theme.DarkBrown
 fun ProductItem(
     product: Product,
     isFavorite: Boolean,
+    navController: NavController,
     onFavoriteClick: () -> Unit
 ) {
     Card(
@@ -70,7 +73,7 @@ fun ProductItem(
                     text = if (isFavorite) stringResource(R.string.p_remove_from_favourites) else stringResource(R.string.p_add_to_favourites))
 
                 MyButton(
-                    onClick = {},
+                    onClick = { navController.navigate(Routes.PRODUCT.route + product.id)},
                     text = stringResource(R.string.p_buy)
                 )
             }
