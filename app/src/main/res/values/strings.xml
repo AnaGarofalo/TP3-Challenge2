@@ -22,4 +22,15 @@
     <string name="pr_password_label">Password</string>
     <string name="pr_password_placeholder">xxxxxxxxxxxxxxx</string>
 
+    <!-- Settings -->
+    <string name="st_account_settings">Account Settings</string>
+    <string name="st_edit_profile">Edit profile</string>
+    <string name="st_change_password">Change password</string>
+    <string name="st_push_notifications">Push notifications</string>
+    <string name="st_dark_mode">Dark mode</string>
+    <string name="st_more">More</string>
+    <string name="st_about_us">About us</string>
+    <string name="st_privacy_policy">Privacy policy</string>
+    <string name="st_terms_of_service">Terms and conditions</string>
+
 </resources>

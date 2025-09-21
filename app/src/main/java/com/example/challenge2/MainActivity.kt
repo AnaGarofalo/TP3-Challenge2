@@ -21,6 +21,7 @@ import com.example.challenge2.components.TopBar
 import com.example.challenge2.data.Product
 import com.example.challenge2.screens.ItemList
 import com.example.challenge2.screens.Profile
+import com.example.challenge2.screens.SettingsScreen
 import com.example.challenge2.types.Routes
 import com.example.challenge2.types.routeTitles
 import com.example.challenge2.ui.theme.Challenge2Theme
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(route = Routes.HOME.route) { ItemList(favoriteProducts ) }
                         composable(route = Routes.PROFILE.route) { Profile() }
-                        composable(route = Routes.SETTINGS.route) { Text(text = "Settings") }
+                        composable(route = Routes.SETTINGS.route) { SettingsScreen() }
                         composable(route = Routes.FAVOURITES.route) { Text(text = "Favourite") }
                     }
                 }

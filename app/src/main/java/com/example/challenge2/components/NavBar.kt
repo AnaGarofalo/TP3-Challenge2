@@ -3,6 +3,7 @@ package com.example.challenge2.components
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -25,6 +26,13 @@ fun NavBar(navController: NavHostController) {
             onClick = {  navController.navigate(Routes.PROFILE.route) },
             icon = { Icon(Icons.Default.Person, contentDescription = "Perfil") },
             label = { Text("Perfil") }
+        )
+
+        NavigationBarItem(
+            selected = false,
+            onClick = {  navController.navigate(Routes.SETTINGS.route) },
+            icon = { Icon(Icons.Default.Settings, contentDescription = "Settings") },
+            label = { Text("Settings") }
         )
     }
 }
